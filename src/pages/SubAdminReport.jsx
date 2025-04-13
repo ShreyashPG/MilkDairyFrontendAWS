@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
+
 export const SubAdminReport = () => {
   const [reportType, setReportType] = useState("daily");
   const [mobileNumber, setMobileNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("farmersLoan");
 
-  const BASE_URL = process.env.BASE_URL+"/api/v1";
+  const VITE_BASE_URL = "https://milkdairybackendaws.onrender.com/api/v1";
 
   const downloadReport = async (url, filename) => {
     try {
       // /api/v1/transaction/subAdmin/customer-reports/:type
       setLoading(true);
       console.log("url: " , url);
-      const response = await axios.get(`${BASE_URL}${url}`, {
+      const response = await axios.get(`${VITE_BASE_URL}${url}`, {
         responseType: "blob",
         withCredentials:true
       });

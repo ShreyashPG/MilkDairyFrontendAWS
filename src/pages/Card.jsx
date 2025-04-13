@@ -3,6 +3,8 @@ import { ShoppingCartContext } from "./ShoppingCartContext";
 import { motion } from "framer-motion";
 import { FaCartPlus } from "react-icons/fa";
 
+
+
 export const Card = ({ product }) => {
   const { handleAddToCart } = useContext(ShoppingCartContext);
   const [added, setAdded] = useState(false);

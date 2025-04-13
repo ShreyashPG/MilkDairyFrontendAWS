@@ -5,6 +5,8 @@ import { BranchForm } from "../components/BranchForm";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+
 export const BranchList = () => {
   const { t } = useTranslation();
 
@@ -28,7 +30,7 @@ export const BranchList = () => {
     const fetchBranches = async () => {
       try {
         const response = await axios.get(
-          process.env.BASE_URL+"/api/v1/branch/get-branches",
+          "https://milkdairybackendaws.onrender.com/api/v1/branch/get-branches",
           { withCredentials: true }
         );
         console.log("Branches fetched:", response.data.data);
@@ -107,7 +109,7 @@ export const BranchList = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/v1/branch/delete-branch/${deleteId}`,
+        `https://milkdairybackendaws.onrender.com/api/v1/branch/delete-branch/${deleteId}`,
         { withCredentials: true }
       );
       setBranches((prevBranches) =>
@@ -132,7 +134,7 @@ export const BranchList = () => {
     try {
       if (isEditing) {
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/branch/update-branch/${editId}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/branch/update-branch/${editId}`,
           {
             branchId: formData.branchId,
             branchAddress: formData.address,
@@ -156,7 +158,7 @@ export const BranchList = () => {
         }
       } else {
         const response = await axios.post(
-          process.env.BASE_URL+"/api/v1/branch/create-branch",
+          "https://milkdairybackendaws.onrender.com/api/v1/branch/create-branch",
           {
             branchId: formData.branchId,
             branchAddress: formData.address,

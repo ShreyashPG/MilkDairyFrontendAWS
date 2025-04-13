@@ -37,7 +37,7 @@
 //     if (formData.mobile.length === 10 && /^\d+$/.test(formData.mobile)) {
 //       setLoading(true);
 //       axios
-//         .post(process.env.BASE_URL+"/api/v1/otp-verification/send-sms", 
+//         .post("https://milkdairybackendaws.onrender.com/api/v1/otp-verification/send-sms", 
 //           {
 //             phone: formData.mobile,
 //             name: formData.name,
@@ -67,7 +67,7 @@
 
 //   // Verify OTP and show confirmation message
 //   const verifyOtp = () => {
-//     axios.post(process.env.BASE_URL+"/api/v1/otp-verification/verify-otp", 
+//     axios.post("https://milkdairybackendaws.onrender.com/api/v1/otp-verification/verify-otp", 
 //           {
 //             phone: formData.mobile,
 //             otp: otpInput,
@@ -311,6 +311,8 @@ import { useTranslation } from "react-i18next";
 import { CartContext } from "../context/CartContext";
 
 
+
+
 export const ContactUs = () => {
   const { t } = useTranslation();
 
@@ -360,7 +362,7 @@ export const ContactUs = () => {
     try
     {
       const response = await axios.get(
-        process.env.BASE_URL+"/api/v1/branch//get-branches-for-customer",
+        "https://milkdairybackendaws.onrender.com/api/v1/branch//get-branches-for-customer",
         { withCredentials: true }
       );
       console.log("Branches fetched:", response.data.data);
@@ -382,7 +384,7 @@ export const ContactUs = () => {
     if (formData.mobile.length === 10 && /^\d+$/.test(formData.mobile)) {
       setLoading(true);
       axios
-        .post(process.env.BASE_URL+"/api/v1/otp-verification/send-sms", {
+        .post("https://milkdairybackendaws.onrender.com/api/v1/otp-verification/send-sms", {
           phone: formData.mobile,
           name: formData.name,
         })
@@ -411,7 +413,7 @@ export const ContactUs = () => {
   // Verify OTP
   const verifyOtp = () => {
     axios
-      .post(process.env.BASE_URL+"/api/v1/otp-verification/verify-otp", {
+      .post("https://milkdairybackendaws.onrender.com/api/v1/otp-verification/verify-otp", {
         phone: formData.mobile,
         otp: otpInput,
       })
@@ -443,7 +445,7 @@ export const ContactUs = () => {
   
         // Place order
         axios
-          .post(process.env.BASE_URL+"/api/v1/online-order/create-order", {orderData}, { withCredentials: true })
+          .post("https://milkdairybackendaws.onrender.com/api/v1/online-order/create-order", {orderData}, { withCredentials: true })
           .then((orderResponse) => {
             console.log("Order Created:", orderResponse.data);
             

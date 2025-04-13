@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { ErrorDialog } from "../components/ErrorDialog";
 
+
+
 // Adjust the base URL as needed for your backend API
-const API_BASE_URL = process.env.BASE_URL+"/api/v1";
+const API_BASE_URL = "https://milkdairybackendaws.onrender.com/api/v1";
 
 const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);

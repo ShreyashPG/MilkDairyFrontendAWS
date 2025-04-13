@@ -4,6 +4,8 @@ import FarmerForm from "../components/FarmerForm.jsx";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+
 export const FarmerList = () => {
   const { t } = useTranslation();
 
@@ -23,7 +25,7 @@ export const FarmerList = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          process.env.BASE_URL+"/api/v1/farmer/get-all-farmers",
+          "https://milkdairybackendaws.onrender.com/api/v1/farmer/get-all-farmers",
           { withCredentials: true }
         );
         // Assume the API returns { data: [farmer1, farmer2, ...] } or simply an array.
@@ -56,7 +58,7 @@ export const FarmerList = () => {
       if (editingFarmer) {
         // Update existing farmer (PATCH request)
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/farmer/update/${editingFarmer._id}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/farmer/update/${editingFarmer._id}`,
           farmer,
           { withCredentials: true }
         );
@@ -71,7 +73,7 @@ export const FarmerList = () => {
         // Add new farmer (POST request)
         console.log("farmer: " , farmer)
         const response = await axios.post(
-          process.env.BASE_URL+"/api/v1/farmer/addFarmer",
+          "https://milkdairybackendaws.onrender.com/api/v1/farmer/addFarmer",
           farmer,
           { withCredentials: true }
         );
@@ -110,7 +112,7 @@ export const FarmerList = () => {
   // Delete a farmer via API
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/farmer/delete/${id}`, {
+      await axios.delete(`https://milkdairybackendaws.onrender.com/api/v1/farmer/delete/${id}`, {
         withCredentials: true,
       });
       setFarmers((prevFarmers) => prevFarmers.filter((f) => f._id !== id));

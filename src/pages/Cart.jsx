@@ -103,6 +103,9 @@ import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 
+
+
+
 export const Cart = () => {
   const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity } =
     useContext(CartContext);

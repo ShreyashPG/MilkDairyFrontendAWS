@@ -43,7 +43,7 @@ export const AdminSidebar = ({ isOpen, setSidebarOpen, admin }) => {
     logout();
     try {
       const response = await axios.post(
-        process.env.BASE_URL+"/api/v1/admin/logout",
+        "https://milkdairybackendaws.onrender.com/api/v1/admin/logout",
         {},
         { withCredentials: true }
       );

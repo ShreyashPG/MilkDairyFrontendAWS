@@ -5,6 +5,8 @@ import axios from "axios";
 import { ErrorDialog } from "../components/ErrorDialog";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+
 export const SubAdminList = () => {
   // State for sub-admins and modal helpers
   const [subAdmins, setSubAdmins] = useState([]);
@@ -30,7 +32,7 @@ export const SubAdminList = () => {
     const fetchSubAdmins = async () => {
       try {
         const response = await axios.get(
-          process.env.BASE_URL+"/api/v1/subadmin/get-all-subadmins",
+          "https://milkdairybackendaws.onrender.com/api/v1/subadmin/get-all-subadmins",
           { withCredentials: true }
         );
         console.log("Fetched sub-admins:", response.data.data);
@@ -71,7 +73,7 @@ export const SubAdminList = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/v1/subadmin/delete/${deleteId}`,
+        `https://milkdairybackendaws.onrender.com/api/v1/subadmin/delete/${deleteId}`,
         { withCredentials: true }
       );
       setSubAdmins((prev) =>
@@ -115,7 +117,7 @@ export const SubAdminList = () => {
         dataUpdate.append("branchId", formData.branchId);
 
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/subadmin/update/${editId}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/subadmin/update/${editId}`,
           dataUpdate,
           {
             withCredentials: true,
@@ -143,7 +145,7 @@ export const SubAdminList = () => {
         dataCreate.append("branchId", formData.branchId);
 
         const response = await axios.post(
-          process.env.BASE_URL+"/api/v1/subadmin/addSubAdmin",
+          "https://milkdairybackendaws.onrender.com/api/v1/subadmin/addSubAdmin",
           dataCreate,
           {
             withCredentials: true,

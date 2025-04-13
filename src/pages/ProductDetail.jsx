@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useLocation } from "react-router-dom";
 
+
+
 export const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
