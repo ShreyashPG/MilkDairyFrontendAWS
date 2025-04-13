@@ -50,7 +50,7 @@ export const ProductList = () => {
     const fetchBranches = async () => {
       try {
         const response = await axios.get(
-          "https://milkdairybackendaws.onrender.com/api/v1/branch/get-branches-for-customer"
+          "https://milkdairybackendaws.onrender.com/api/v1/branch/get-branches-for-customer", { withCredentials: true }
         );
         setBranches(response.data.data);
       } catch (err) {
@@ -69,7 +69,7 @@ export const ProductList = () => {
       const fetchCategories = async () => {
         try {
           const response = await axios.get(
-            `https://milkdairybackendaws.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`
+            `https://milkdairybackendaws.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`, { withCredentials: true }
           );
 
           const formattedCategories = response.data.data.map((category) => ({
@@ -98,7 +98,7 @@ export const ProductList = () => {
               ? `https://milkdairybackendaws.onrender.com/api/v1/category/get-all-products/${selectedBranch}`
               : `https://milkdairybackendaws.onrender.com/api/v1/category/get-category-from-branch-id/${selectedBranch}/${selectedCategory}`;
 
-          const response = await axios.get(url);
+          const response = await axios.get(url, { withCredentials: true });
           console.log(response.data.data);
           setProducts(response.data.data);
         } catch (err) {
@@ -113,12 +113,12 @@ export const ProductList = () => {
   useEffect(() => {
     socket.on("categoryUpdated", () => {
       if (selectedBranch) {
-        axios.get(`https://milkdairybackendaws.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`)
+        axios.get(`https://milkdairybackendaws.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`, { withCredentials: true })
           .then((response) => {
             setCategories([{ id: "all", name: "All" }, ...response.data.data.map((c) => ({ id: c._id, name: c.categoryName }))]);
           });
         
-        axios.get(`https://milkdairybackendaws.onrender.com/api/v1/category/get-all-products/${selectedBranch}`)
+        axios.get(`https://milkdairybackendaws.onrender.com/api/v1/category/get-all-products/${selectedBranch}`, { withCredentials: true })
           .then((response) => {
             setProducts(response.data.data);
           });
