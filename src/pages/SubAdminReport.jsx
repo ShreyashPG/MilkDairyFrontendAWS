@@ -7,7 +7,7 @@ export const SubAdminReport = () => {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("farmersLoan");
 
-  const BASE_URL = "http://localhost:8000/api/v1";
+  const BASE_URL = process.env.BASE_URL+"/api/v1";
 
   const downloadReport = async (url, filename) => {
     try {

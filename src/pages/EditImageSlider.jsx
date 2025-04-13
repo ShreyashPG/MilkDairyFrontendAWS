@@ -31,7 +31,7 @@ export const EditImageSlider = () => {
       setError("");
       try {
         const { data } = await axios.get(
-          "http://localhost:8000/api/v1/new-offer/get-all-offers",
+          process.env.BASE_URL+"/api/v1/new-offer/get-all-offers",
           { withCredentials: true }
         );
         console.log("Fetched slides:", data);
@@ -143,7 +143,7 @@ export const EditImageSlider = () => {
       } else {
         // Create a new slide
         const response = await axios.post(
-          "http://localhost:8000/api/v1/new-offer/add-new-offer",
+          process.env.BASE_URL+"/api/v1/new-offer/add-new-offer",
           formData,
           {
             withCredentials: true,

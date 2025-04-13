@@ -19,7 +19,7 @@ const LoanList = () => {
   const fetchLoans = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/loan/get-all-loans",
+        process.env.BASE_URL+"/api/v1/loan/get-all-loans",
         { withCredentials: true }
       );
       console.log(response);
@@ -71,7 +71,7 @@ const LoanList = () => {
       } else {
         // Create new loan
         const response = await axios.post(
-          "http://localhost:8000/api/v1/loan/add-loan",
+          process.env.BASE_URL+"/api/v1/loan/add-loan",
           loan,
           { withCredentials: true }
         );

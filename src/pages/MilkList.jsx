@@ -22,7 +22,7 @@ const MilkList = () => {
     setLoadingMilk(true);
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/milk/get-all-milk",
+        process.env.BASE_URL+"/api/v1/milk/get-all-milk",
         { withCredentials: true }
       );
       // Expected response: array of farmer objects with fields: farmerName, mobileNumber, transaction (array)
@@ -43,7 +43,7 @@ const MilkList = () => {
     setLoadingFarmers(true);
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/v1/farmer/get-all-farmers",
+        process.env.BASE_URL+"/api/v1/farmer/get-all-farmers",
         { withCredentials: true }
       );
       const fetchedFarmers = response.data.data || response.data;
@@ -95,7 +95,7 @@ const MilkList = () => {
       } else {
         // Add new milk transaction
         const response = await axios.post(
-          "http://localhost:8000/api/v1/milk/add-milk",
+          process.env.BASE_URL+"/api/v1/milk/add-milk",
           entry,
           { withCredentials: true }
         );
