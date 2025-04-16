@@ -50,7 +50,7 @@ export const CategoryForm = ({ onClose, onSuccess, editingCategory }) => {
       } else {
         // Create category API call: POST /api/v1/category/create-category
         response = await axios.post(
-          "http://localhost:8000/api/v1/category/addCategory",
+          process.env.VITE_BASE_URL+"/api/v1/category/addCategory",
           {
             categoryName: categoryName.trim(),
             categoryDescription: description.trim(),

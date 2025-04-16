@@ -23,7 +23,7 @@ export const FarmerList = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/v1/farmer/get-all-farmers",
+          process.env.VITE_BASE_URL+"/api/v1/farmer/get-all-farmers",
           { withCredentials: true }
         );
         // Assume the API returns { data: [farmer1, farmer2, ...] } or simply an array.
@@ -71,7 +71,7 @@ export const FarmerList = () => {
         // Add new farmer (POST request)
         console.log("farmer: " , farmer)
         const response = await axios.post(
-          "http://localhost:8000/api/v1/farmer/addFarmer",
+          process.env.VITE_BASE_URL+"/api/v1/farmer/addFarmer",
           farmer,
           { withCredentials: true }
         );

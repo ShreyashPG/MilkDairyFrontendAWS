@@ -42,19 +42,19 @@ export const Login = () => {
       let response;
       if (role === "Admin") {
         response = await axios.post(
-          "http://localhost:8000/api/v1/admin/login",
+          process.env.VITE_BASE_URL+"/api/v1/admin/login",
           { adminMobileNumber: mobile, adminPassword: password },
           { withCredentials: true }
         );
       } else if (role === "SubAdmin") {
         response = await axios.post(
-          "http://localhost:8000/api/v1/subadmin/login",
+          process.env.VITE_BASE_URL+"/api/v1/subadmin/login",
           { mobileNumber: mobile, subAdminPassword: password },
           { withCredentials: true }
         );
       }
       // const response = await axios.post(
-      //   "http://localhost:8000/api/v1/admin/login",
+      //   process.env.VITE_BASE_URL+"/api/v1/admin/login",
       //   { adminMobileNumber: mobile, adminPassword: password },
       //   { withCredentials: true }
       // );
