@@ -5,8 +5,6 @@ import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 
-
-
 export const Login = () => {
   const { t } = useTranslation();
   const [role, setRole] = useState("");
@@ -44,19 +42,19 @@ export const Login = () => {
       let response;
       if (role === "Admin") {
         response = await axios.post(
-          "https://milkdairybackendaws.onrender.com/api/v1/admin/login",
+          "http://localhost:8000/api/v1/admin/login",
           { adminMobileNumber: mobile, adminPassword: password },
           { withCredentials: true }
         );
       } else if (role === "SubAdmin") {
         response = await axios.post(
-          "https://milkdairybackendaws.onrender.com/api/v1/subadmin/login",
+          "http://localhost:8000/api/v1/subadmin/login",
           { mobileNumber: mobile, subAdminPassword: password },
           { withCredentials: true }
         );
       }
       // const response = await axios.post(
-      //   "https://milkdairybackendaws.onrender.com/api/v1/admin/login",
+      //   "http://localhost:8000/api/v1/admin/login",
       //   { adminMobileNumber: mobile, adminPassword: password },
       //   { withCredentials: true }
       // );

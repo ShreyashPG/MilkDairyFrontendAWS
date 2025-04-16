@@ -4,8 +4,6 @@ import { ImageSlider, ProductImageSlider, About } from "../components/index.js";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-
-
 export function Home() {
   const { t } = useTranslation();
 
@@ -54,7 +52,7 @@ export function Home() {
     setHeroError(null);
     try {
       const response = await axios.get(
-        "https://milkdairybackendaws.onrender.com/api/v1/new-offer/get-all-offers", { withCredentials: true }
+        "http://localhost:8000/api/v1/new-offer/get-all-offers", { withCredentials: true }
       );
 
       const data = response?.data?.data ?? [];

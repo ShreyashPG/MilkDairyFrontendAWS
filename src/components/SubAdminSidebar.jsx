@@ -39,16 +39,16 @@ export const SubAdminSidebar = ({ isOpen, setSidebarOpen, subAdmin }) => {
     { name: t("subAdminSidebar.menu.addProduct"), path: "/subadmin/products" },
     { name: t("subAdminSidebar.menu.loan"), path: "/subadmin/loan" },
     { name: t("subAdminSidebar.menu.farmer"), path: "/subadmin/farmer" },
-    { name: "Add Product Category", path: "/subadmin/category" },
+    { name: t("subAdminSidebar.menu.addProductCategory"), path: "/subadmin/category" },
     { name: t("subAdminSidebar.menu.report"), path: "/subadmin/report" },
-    { name: "Online Orders", path: "/subadmin/online_orders" }, // Added Online Orders
+    { name: t("subAdminSidebar.menu.OnlineOrders"), path: "/subadmin/online_orders" }, // Added Online Orders
   ];
 
   const handleLogout = async () => {
     logout();
     try {
       const response = await axios.post(
-        "https://milkdairybackendaws.onrender.com/api/v1/subadmin/logout",
+        "http://localhost:8000/api/v1/subadmin/logout",
         {},
         { withCredentials: true }
       );

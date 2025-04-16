@@ -407,6 +407,8 @@ const resources = {
           loan: "Loan",
           farmer: "Farmer",
           report: "Report",
+          addProductCategory:"Add Product Category",
+          OnlineOrders: "Online Orders",
         },
         language: {
           select: "Select Language",
@@ -826,6 +828,9 @@ const resources = {
           loan: "कर्ज",
           farmer: "शेतकरी",
           report: "अहवाल",
+          addProductCategory : "उत्पादन श्रेणी जोडा",
+          OnlineOrders : "ऑनलाईन ऑर्डर",
+
         },
         language: {
           select: "भाषा निवडा",

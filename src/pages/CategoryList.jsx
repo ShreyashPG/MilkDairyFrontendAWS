@@ -3,8 +3,6 @@ import axios from "axios";
 import { CategoryForm } from "../components/CategoryForm"; // Adjust path as needed
 import { motion, AnimatePresence } from "framer-motion";
 
-
-
 export const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -20,7 +18,7 @@ export const CategoryList = () => {
     setError("");
     try {
       const response = await axios.get(
-        "https://milkdairybackendaws.onrender.com/api/v1/category/get-all-categories",
+        "http://localhost:8000/api/v1/category/get-all-categories",
         { withCredentials: true }
       );
       // Assume API returns an object with a data property that is an array of categories
@@ -59,7 +57,7 @@ export const CategoryList = () => {
       return;
     try {
       await axios.delete(
-        `https://milkdairybackendaws.onrender.com/api/v1/category/delete-category/${id}`,
+        `http://localhost:8000/api/v1/category/delete-category/${id}`,
         { withCredentials: true }
       );
       // Re-fetch categories to update state

@@ -172,8 +172,6 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import axios from "axios"; // Import Axios
 
-
-
 export const AdminReport = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -190,7 +188,7 @@ export const AdminReport = () => {
   useEffect(() => {
     const fetchBranches = async () => {
       try {
-        const response = await axios.get("https://milkdairybackendaws.onrender.com/api/v1/branch/get-branches-for-customer", { withCredentials: true }); // Adjust API URL
+        const response = await axios.get("http://localhost:8000/api/v1/branch/get-branches-for-customer"); // Adjust API URL
         setBranchList(response.data.data); // Assuming API returns an array of branch names
         // console.log(response.data.data)
       } catch (error) {

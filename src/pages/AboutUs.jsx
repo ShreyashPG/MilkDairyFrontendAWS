@@ -13,8 +13,6 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import aboutUsImage from "../assets/AboutUs.jpeg";
 
-
-
 // AnimatedCard: used to display each value in the grid
 function AnimatedCard({ icon: Icon, title, description, delay }) {
   return (

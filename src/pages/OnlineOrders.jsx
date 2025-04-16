@@ -107,8 +107,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-
-
 const OnlineOrders = () => {
   const [orders, setOrders] = useState([]); // State to store fetched orders
   const [loading, setLoading] = useState(true);
@@ -117,7 +115,7 @@ const OnlineOrders = () => {
   // Fetch orders from the backend
   useEffect(() => {
     axios
-      .get("https://milkdairybackendaws.onrender.com/api/v1/online-order/get-all-orders" , {
+      .get("http://localhost:8000/api/v1/online-order/get-all-orders" , {
         withCredentials : true
       }) // Adjust this API endpoint as needed
       .then((response) => {

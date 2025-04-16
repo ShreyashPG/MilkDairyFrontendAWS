@@ -23,7 +23,7 @@ export const SubAdminLayout = () => {
     const subAdminId = responseByLS.data.data.subAdmin.id;
     try {
       const response = await axios.get(
-        `https://milkdairybackendaws.onrender.com/api/v1/subadmin/get/${subAdminId}`,
+        `http://localhost:8000/api/v1/subadmin/get/${subAdminId}`,
         { withCredentials: true }
       );
       setSubAdmin(response.data.data);

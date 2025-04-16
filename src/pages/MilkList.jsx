@@ -3,8 +3,6 @@ import axios from "axios";
 import MilkForm from "../components/MilkForm.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 
-
-
 const MilkList = () => {
   const [milkEntries, setMilkEntries] = useState([]); // Array of farmer documents (each contains transactions)
   const [farmers, setFarmers] = useState([]); // For populating the MilkForm dropdown
@@ -24,7 +22,7 @@ const MilkList = () => {
     setLoadingMilk(true);
     try {
       const response = await axios.get(
-        "https://milkdairybackendaws.onrender.com/api/v1/milk/get-all-milk",
+        "http://localhost:8000/api/v1/milk/get-all-milk",
         { withCredentials: true }
       );
       // Expected response: array of farmer objects with fields: farmerName, mobileNumber, transaction (array)
@@ -45,7 +43,7 @@ const MilkList = () => {
     setLoadingFarmers(true);
     try {
       const response = await axios.get(
-        "https://milkdairybackendaws.onrender.com/api/v1/farmer/get-all-farmers",
+        "http://localhost:8000/api/v1/farmer/get-all-farmers",
         { withCredentials: true }
       );
       const fetchedFarmers = response.data.data || response.data;
@@ -77,7 +75,7 @@ const MilkList = () => {
       if (editingEntry) {
         // Update existing milk transaction
         const response = await axios.patch(
-          `https://milkdairybackendaws.onrender.com/api/v1/milk/update-milk/${editingEntry.farmerId}/${editingEntry._id}`,
+          `http://localhost:8000/api/v1/milk/update-milk/${editingEntry.farmerId}/${editingEntry._id}`,
           entry,
           { withCredentials: true }
         );
@@ -97,7 +95,7 @@ const MilkList = () => {
       } else {
         // Add new milk transaction
         const response = await axios.post(
-          "https://milkdairybackendaws.onrender.com/api/v1/milk/add-milk",
+          "http://localhost:8000/api/v1/milk/add-milk",
           entry,
           { withCredentials: true }
         );
@@ -144,7 +142,7 @@ const MilkList = () => {
   const handleDeleteConfirmed = async (transactionId, farmerId) => {
     try {
       await axios.delete(
-        `https://milkdairybackendaws.onrender.com/api/v1/milk/delete-milk/${farmerId}/${transactionId}`,
+        `http://localhost:8000/api/v1/milk/delete-milk/${farmerId}/${transactionId}`,
         { withCredentials: true }
       );
       // Update local state: remove the transaction from the corresponding farmer
@@ -174,7 +172,7 @@ const MilkList = () => {
     }
   };
   {
-    console.log("milkEntries: " , milkEntries);
+    console.log("milkEntries: ", milkEntries);
   }
   // Flatten the nested milkEntries into individual transaction rows.
   const flatMilkTransactions = milkEntries.flatMap((entry) =>
@@ -322,18 +320,20 @@ const MilkList = () => {
                       ₹{flatEntry.transactionAmount}
                     </td>
                     <td className="px-4 py-3 text-center">
-                      <button
-                        onClick={() => handleEdit(flatEntry)}
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-1 px-3 rounded mr-2 transition duration-150"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => openDeleteModal(flatEntry)}
-                        className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 rounded transition duration-150"
-                      >
-                        Delete
-                      </button>
+                      <div className="flex justify-center gap-2">
+                        <button
+                          onClick={() => handleEdit(flatEntry)}
+                          className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded transition duration-150"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => openDeleteModal(flatEntry)}
+                          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition duration-150"
+                        >
+                          Delete
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))
