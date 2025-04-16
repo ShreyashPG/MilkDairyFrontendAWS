@@ -67,7 +67,7 @@ export const ProductList = () => {
       const fetchCategories = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8000/api/v1/category/get-categories-by-branch/${selectedBranch}`
+            `https://milkdairybackendaws.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`
           );
 
           const formattedCategories = response.data.data.map((category) => ({
@@ -93,8 +93,8 @@ export const ProductList = () => {
         try {
           const url =
             selectedCategory === "all"
-              ? `http://localhost:8000/api/v1/category/get-all-products/${selectedBranch}`
-              : `http://localhost:8000/api/v1/category/get-category-from-branch-id/${selectedBranch}/${selectedCategory}`;
+              ? `https://milkdairybackendaws.onrender.com/api/v1/category/get-all-products/${selectedBranch}`
+              : `https://milkdairybackendaws.onrender.com/api/v1/category/get-category-from-branch-id/${selectedBranch}/${selectedCategory}`;
 
           const response = await axios.get(url);
           console.log(response.data.data);
@@ -111,12 +111,12 @@ export const ProductList = () => {
   useEffect(() => {
     socket.on("categoryUpdated", () => {
       if (selectedBranch) {
-        axios.get(`http://localhost:8000/api/v1/category/get-categories-by-branch/${selectedBranch}`)
+        axios.get(`https://milkdairybackendaws.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`)
           .then((response) => {
             setCategories([{ id: "all", name: "All" }, ...response.data.data.map((c) => ({ id: c._id, name: c.categoryName }))]);
           });
         
-        axios.get(`http://localhost:8000/api/v1/category/get-all-products/${selectedBranch}`)
+        axios.get(`https://milkdairybackendaws.onrender.com/api/v1/category/get-all-products/${selectedBranch}`)
           .then((response) => {
             setProducts(response.data.data);
           });

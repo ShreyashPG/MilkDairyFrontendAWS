@@ -107,7 +107,7 @@ export const BranchList = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/v1/branch/delete-branch/${deleteId}`,
+        `https://milkdairybackendaws.onrender.com/api/v1/branch/delete-branch/${deleteId}`,
         { withCredentials: true }
       );
       setBranches((prevBranches) =>
@@ -132,7 +132,7 @@ export const BranchList = () => {
     try {
       if (isEditing) {
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/branch/update-branch/${editId}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/branch/update-branch/${editId}`,
           {
             branchId: formData.branchId,
             branchAddress: formData.address,

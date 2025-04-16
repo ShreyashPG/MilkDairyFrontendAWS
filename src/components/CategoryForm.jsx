@@ -40,7 +40,7 @@ export const CategoryForm = ({ onClose, onSuccess, editingCategory }) => {
       if (editingCategory) {
         // Update category API call: PATCH /api/v1/category/update-category/:id
         response = await axios.patch(
-          `http://localhost:8000/api/v1/category/update-category/${editingCategory._id}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/category/update-category/${editingCategory._id}`,
           {
             categoryName: categoryName.trim(),
             categoryDescription: description.trim(),

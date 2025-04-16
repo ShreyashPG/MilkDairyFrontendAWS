@@ -57,7 +57,7 @@ export const CategoryList = () => {
       return;
     try {
       await axios.delete(
-        `http://localhost:8000/api/v1/category/delete-category/${id}`,
+        `https://milkdairybackendaws.onrender.com/api/v1/category/delete-category/${id}`,
         { withCredentials: true }
       );
       // Re-fetch categories to update state

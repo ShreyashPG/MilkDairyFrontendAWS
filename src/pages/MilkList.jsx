@@ -75,7 +75,7 @@ const MilkList = () => {
       if (editingEntry) {
         // Update existing milk transaction
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/milk/update-milk/${editingEntry.farmerId}/${editingEntry._id}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/milk/update-milk/${editingEntry.farmerId}/${editingEntry._id}`,
           entry,
           { withCredentials: true }
         );
@@ -142,7 +142,7 @@ const MilkList = () => {
   const handleDeleteConfirmed = async (transactionId, farmerId) => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/v1/milk/delete-milk/${farmerId}/${transactionId}`,
+        `https://milkdairybackendaws.onrender.com/api/v1/milk/delete-milk/${farmerId}/${transactionId}`,
         { withCredentials: true }
       );
       // Update local state: remove the transaction from the corresponding farmer

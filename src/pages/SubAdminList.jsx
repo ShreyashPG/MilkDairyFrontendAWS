@@ -71,7 +71,7 @@ export const SubAdminList = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/v1/subadmin/delete/${deleteId}`,
+        `https://milkdairybackendaws.onrender.com/api/v1/subadmin/delete/${deleteId}`,
         { withCredentials: true }
       );
       setSubAdmins((prev) =>
@@ -115,7 +115,7 @@ export const SubAdminList = () => {
         dataUpdate.append("branchId", formData.branchId);
 
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/subadmin/update/${editId}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/subadmin/update/${editId}`,
           dataUpdate,
           {
             withCredentials: true,

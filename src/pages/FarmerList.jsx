@@ -56,7 +56,7 @@ export const FarmerList = () => {
       if (editingFarmer) {
         // Update existing farmer (PATCH request)
         const response = await axios.patch(
-          `http://localhost:8000/api/v1/farmer/update/${editingFarmer._id}`,
+          `https://milkdairybackendaws.onrender.com/api/v1/farmer/update/${editingFarmer._id}`,
           farmer,
           { withCredentials: true }
         );
@@ -110,7 +110,7 @@ export const FarmerList = () => {
   // Delete a farmer via API
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/farmer/delete/${id}`, {
+      await axios.delete(`https://milkdairybackendaws.onrender.com/api/v1/farmer/delete/${id}`, {
         withCredentials: true,
       });
       setFarmers((prevFarmers) => prevFarmers.filter((f) => f._id !== id));
