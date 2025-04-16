@@ -10,7 +10,7 @@ export const SubAdminReport = () => {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("farmersLoan");
 
-  const BASE_URL = import.meta.env.VITE_BASE_URL + "/api/v1";
+  const BASE_URL = "https://milkdairybackendaws.onrender.com/api/v1";
 
   // Function to handle start date selection and calculate end date
   const handleStartDateChange = (date) => {

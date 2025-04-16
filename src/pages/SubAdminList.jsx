@@ -30,7 +30,7 @@ export const SubAdminList = () => {
     const fetchSubAdmins = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/api/v1/subadmin/get-all-subadmins",
+          "https://milkdairybackendaws.onrender.com/api/v1/subadmin/get-all-subadmins",
           { withCredentials: true }
         );
         console.log("Fetched sub-admins:", response.data.data);
@@ -143,7 +143,7 @@ export const SubAdminList = () => {
         dataCreate.append("branchId", formData.branchId);
 
         const response = await axios.post(
-          import.meta.env.VITE_BASE_URL + "/api/v1/subadmin/addSubAdmin",
+          "https://milkdairybackendaws.onrender.com/api/v1/subadmin/addSubAdmin",
           dataCreate,
           {
             withCredentials: true,

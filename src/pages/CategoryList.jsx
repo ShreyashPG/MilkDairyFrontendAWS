@@ -18,7 +18,7 @@ export const CategoryList = () => {
     setError("");
     try {
       const response = await axios.get(
-        import.meta.env.VITE_BASE_URL + "/api/v1/category/get-all-categories",
+        "https://milkdairybackendaws.onrender.com/api/v1/category/get-all-categories",
         { withCredentials: true }
       );
       // Assume API returns an object with a data property that is an array of categories

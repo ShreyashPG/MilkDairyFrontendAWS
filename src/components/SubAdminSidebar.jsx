@@ -48,7 +48,7 @@ export const SubAdminSidebar = ({ isOpen, setSidebarOpen, subAdmin }) => {
     logout();
     try {
       const response = await axios.post(
-        import.meta.env.VITE_BASE_URL + "/api/v1/subadmin/logout",
+        "https://milkdairybackendaws.onrender.com/api/v1/subadmin/logout",
         {},
         { withCredentials: true }
       );

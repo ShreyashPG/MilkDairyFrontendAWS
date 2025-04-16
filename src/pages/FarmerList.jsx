@@ -23,7 +23,7 @@ export const FarmerList = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/api/v1/farmer/get-all-farmers",
+          "https://milkdairybackendaws.onrender.com/api/v1/farmer/get-all-farmers",
           { withCredentials: true }
         );
         // Assume the API returns { data: [farmer1, farmer2, ...] } or simply an array.
@@ -71,7 +71,7 @@ export const FarmerList = () => {
         // Add new farmer (POST request)
         console.log("farmer: " , farmer)
         const response = await axios.post(
-          import.meta.env.VITE_BASE_URL + "/api/v1/farmer/addFarmer",
+          "https://milkdairybackendaws.onrender.com/api/v1/farmer/addFarmer",
           farmer,
           { withCredentials: true }
         );

@@ -28,7 +28,7 @@ export const BranchList = () => {
     const fetchBranches = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "/api/v1/branch/get-branches",
+          "https://milkdairybackendaws.onrender.com/api/v1/branch/get-branches",
           { withCredentials: true }
         );
         console.log("Branches fetched:", response.data.data);
@@ -156,7 +156,7 @@ export const BranchList = () => {
         }
       } else {
         const response = await axios.post(
-          import.meta.env.VITE_BASE_URL + "/api/v1/branch/create-branch",
+          "https://milkdairybackendaws.onrender.com/api/v1/branch/create-branch",
           {
             branchId: formData.branchId,
             branchAddress: formData.address,
