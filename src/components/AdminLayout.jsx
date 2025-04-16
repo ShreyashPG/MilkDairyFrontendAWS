@@ -13,7 +13,7 @@ export const AdminLayout = () => {
   const fetchAdmin = async () => {
     try {
       const response = await axios.get(
-        process.env.VITE_BASE_URL+"/api/v1/admin/get-admin",
+        import.meta.env.VITE_BASE_URL + "/api/v1/admin/get-admin",
         { withCredentials: true }
       );
       console.log(response);

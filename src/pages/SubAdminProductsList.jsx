@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Set your backend API base URL (adjust as needed)
-const API_URL = process.env.VITE_BASE_URL+"/api/v1/category";
+const API_URL = import.meta.env.VITE_BASE_URL + "/api/v1/category";
 
 export const SubAdminProductsList = () => {
   const [categories, setCategories] = useState([]);

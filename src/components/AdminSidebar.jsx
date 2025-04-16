@@ -43,7 +43,7 @@ export const AdminSidebar = ({ isOpen, setSidebarOpen, admin }) => {
     logout();
     try {
       const response = await axios.post(
-        process.env.VITE_BASE_URL+"/api/v1/admin/logout",
+        import.meta.env.VITE_BASE_URL + "/api/v1/admin/logout",
         {},
         { withCredentials: true }
       );

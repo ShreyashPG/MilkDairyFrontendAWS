@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { io } from "socket.io-client";
 import { ErrorDialog } from "../components/ErrorDialog.jsx";
 
-const socket = io(process.env.VITE_BASE_URL+"");
+const socket = io(import.meta.env.VITE_BASE_URL + "");
 export const ProductList = () => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -48,7 +48,7 @@ export const ProductList = () => {
     const fetchBranches = async () => {
       try {
         const response = await axios.get(
-          process.env.VITE_BASE_URL+"/api/v1/branch/get-branches-for-customer"
+          import.meta.env.VITE_BASE_URL + "/api/v1/branch/get-branches-for-customer"
         );
         setBranches(response.data.data);
       } catch (err) {

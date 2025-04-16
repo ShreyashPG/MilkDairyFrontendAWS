@@ -43,7 +43,7 @@ const LoanForm = ({
     const fetchFarmers = async () => {
       try {
         const response = await axios.get(
-          process.env.VITE_BASE_URL+"/api/v1/farmer/get-all-farmers",
+          import.meta.env.VITE_BASE_URL + "/api/v1/farmer/get-all-farmers",
           { withCredentials: true }
         );
         const fetchedFarmers = response.data.data || response.data;

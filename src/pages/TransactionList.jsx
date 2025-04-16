@@ -6,7 +6,7 @@ import axios from "axios";
 import { ErrorDialog } from "../components/ErrorDialog";
 
 // Adjust the base URL as needed for your backend API
-const API_BASE_URL = process.env.VITE_BASE_URL+"/api/v1";
+const API_BASE_URL = import.meta.env.VITE_BASE_URL + "/api/v1";
 
 const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
