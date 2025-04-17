@@ -175,7 +175,7 @@ export const SubAdminReport = () => {
           <button
             onClick={() =>
               downloadReport(
-                `/transaction/download-all-farmers-pdf`,
+                `/transaction/Report-all-farmers-pdf/${startDate}/${endDate}`,
                 `$all_Farmers_Combined_Report.pdf`
               )
             }
