@@ -52,7 +52,7 @@ export function Home() {
     setHeroError(null);
     try {
       const response = await axios.get(
-        "https://milkdairybackendaws.onrender.com/api/v1/new-offer/get-all-offers", { withCredentials: true }
+        "https://borgave-milkdairy.onrender.com/api/v1/new-offer/get-all-offers", { withCredentials: true }
       );
 
       const data = response?.data?.data ?? [];

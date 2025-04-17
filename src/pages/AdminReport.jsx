@@ -188,7 +188,7 @@ export const AdminReport = () => {
   useEffect(() => {
     const fetchBranches = async () => {
       try {
-        const response = await axios.get("https://milkdairybackendaws.onrender.com/api/v1/branch/get-branches-for-customer"); // Adjust API URL
+        const response = await axios.get("https://borgave-milkdairy.onrender.com/api/v1/branch/get-branches-for-customer"); // Adjust API URL
         setBranchList(response.data.data); // Assuming API returns an array of branch names
         // console.log(response.data.data)
       } catch (error) {

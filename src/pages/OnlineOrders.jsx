@@ -115,7 +115,7 @@ const OnlineOrders = () => {
   // Fetch orders from the backend
   useEffect(() => {
     axios
-      .get("https://milkdairybackendaws.onrender.com/api/v1/online-order/get-all-orders" , {
+      .get("https://borgave-milkdairy.onrender.com/api/v1/online-order/get-all-orders" , {
         withCredentials : true
       }) // Adjust this API endpoint as needed
       .then((response) => {
