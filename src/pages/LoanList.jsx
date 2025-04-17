@@ -19,7 +19,7 @@ const LoanList = () => {
   const fetchLoans = async () => {
     try {
       const response = await axios.get(
-        "https://borgave-milkdairy.onrender.com/api/v1/loan/get-all-loans",
+        "https://milkdairybackendaws-production.up.railway.app/api/v1/loan/get-all-loans",
         { withCredentials: true }
       );
       console.log(response);
@@ -63,7 +63,7 @@ const LoanList = () => {
       if (editingLoan) {
         // Update existing loan
         const response = await axios.put(
-          `https://borgave-milkdairy.onrender.com/api/v1/loan/update/${editingLoan.id}`,
+          `https://milkdairybackendaws-production.up.railway.app/api/v1/loan/update/${editingLoan.id}`,
           loan,
           { withCredentials: true }
         );
@@ -71,7 +71,7 @@ const LoanList = () => {
       } else {
         // Create new loan
         const response = await axios.post(
-          "https://borgave-milkdairy.onrender.com/api/v1/loan/add-loan",
+          "https://milkdairybackendaws-production.up.railway.app/api/v1/loan/add-loan",
           loan,
           { withCredentials: true }
         );
@@ -101,7 +101,7 @@ const LoanList = () => {
   const handleDeleteConfirmed = async (id) => {
     try {
       const response = await axios.delete(
-        `https://borgave-milkdairy.onrender.com/api/v1/loan/delete/${id}`,
+        `https://milkdairybackendaws-production.up.railway.app/api/v1/loan/delete/${id}`,
         { withCredentials: true }
       );
       console.log("Loan deleted:", response.data);
@@ -139,7 +139,7 @@ const LoanList = () => {
     }
     try {
       const response = await axios.post(
-        `https://borgave-milkdairy.onrender.com/api/v1/loan/deduct/${loanToDeduct.id}`,
+        `https://milkdairybackendaws-production.up.railway.app/api/v1/loan/deduct/${loanToDeduct.id}`,
         { loanAmount: amount },
         { withCredentials: true }
       );

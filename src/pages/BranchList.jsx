@@ -28,7 +28,7 @@ export const BranchList = () => {
     const fetchBranches = async () => {
       try {
         const response = await axios.get(
-          "https://borgave-milkdairy.onrender.com/api/v1/branch/get-branches",
+          "https://milkdairybackendaws-production.up.railway.app/api/v1/branch/get-branches",
           { withCredentials: true }
         );
         console.log("Branches fetched:", response.data.data);
@@ -107,7 +107,7 @@ export const BranchList = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `https://borgave-milkdairy.onrender.com/api/v1/branch/delete-branch/${deleteId}`,
+        `https://milkdairybackendaws-production.up.railway.app/api/v1/branch/delete-branch/${deleteId}`,
         { withCredentials: true }
       );
       setBranches((prevBranches) =>
@@ -132,7 +132,7 @@ export const BranchList = () => {
     try {
       if (isEditing) {
         const response = await axios.patch(
-          `https://borgave-milkdairy.onrender.com/api/v1/branch/update-branch/${editId}`,
+          `https://milkdairybackendaws-production.up.railway.app/api/v1/branch/update-branch/${editId}`,
           {
             branchId: formData.branchId,
             branchAddress: formData.address,
@@ -156,7 +156,7 @@ export const BranchList = () => {
         }
       } else {
         const response = await axios.post(
-          "https://borgave-milkdairy.onrender.com/api/v1/branch/create-branch",
+          "https://milkdairybackendaws-production.up.railway.app/api/v1/branch/create-branch",
           {
             branchId: formData.branchId,
             branchAddress: formData.address,

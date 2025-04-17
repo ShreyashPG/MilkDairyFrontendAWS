@@ -48,7 +48,7 @@ export const ProductList = () => {
     const fetchBranches = async () => {
       try {
         const response = await axios.get(
-          "https://borgave-milkdairy.onrender.com/api/v1/branch/get-branches-for-customer"
+          "https://milkdairybackendaws-production.up.railway.app/api/v1/branch/get-branches-for-customer"
         );
         setBranches(response.data.data);
       } catch (err) {
@@ -67,7 +67,7 @@ export const ProductList = () => {
       const fetchCategories = async () => {
         try {
           const response = await axios.get(
-            `https://borgave-milkdairy.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`
+            `https://milkdairybackendaws-production.up.railway.app/api/v1/category/get-categories-by-branch/${selectedBranch}`
           );
 
           const formattedCategories = response.data.data.map((category) => ({
@@ -93,8 +93,8 @@ export const ProductList = () => {
         try {
           const url =
             selectedCategory === "all"
-              ? `https://borgave-milkdairy.onrender.com/api/v1/category/get-all-products/${selectedBranch}`
-              : `https://borgave-milkdairy.onrender.com/api/v1/category/get-category-from-branch-id/${selectedBranch}/${selectedCategory}`;
+              ? `https://milkdairybackendaws-production.up.railway.app/api/v1/category/get-all-products/${selectedBranch}`
+              : `https://milkdairybackendaws-production.up.railway.app/api/v1/category/get-category-from-branch-id/${selectedBranch}/${selectedCategory}`;
 
           const response = await axios.get(url);
           console.log(response.data.data);
@@ -111,12 +111,12 @@ export const ProductList = () => {
   useEffect(() => {
     socket.on("categoryUpdated", () => {
       if (selectedBranch) {
-        axios.get(`https://borgave-milkdairy.onrender.com/api/v1/category/get-categories-by-branch/${selectedBranch}`)
+        axios.get(`https://milkdairybackendaws-production.up.railway.app/api/v1/category/get-categories-by-branch/${selectedBranch}`)
           .then((response) => {
             setCategories([{ id: "all", name: "All" }, ...response.data.data.map((c) => ({ id: c._id, name: c.categoryName }))]);
           });
         
-        axios.get(`https://borgave-milkdairy.onrender.com/api/v1/category/get-all-products/${selectedBranch}`)
+        axios.get(`https://milkdairybackendaws-production.up.railway.app/api/v1/category/get-all-products/${selectedBranch}`)
           .then((response) => {
             setProducts(response.data.data);
           });

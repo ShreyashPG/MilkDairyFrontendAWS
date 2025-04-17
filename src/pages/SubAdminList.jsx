@@ -30,7 +30,7 @@ export const SubAdminList = () => {
     const fetchSubAdmins = async () => {
       try {
         const response = await axios.get(
-          "https://borgave-milkdairy.onrender.com/api/v1/subadmin/get-all-subadmins",
+          "https://milkdairybackendaws-production.up.railway.app/api/v1/subadmin/get-all-subadmins",
           { withCredentials: true }
         );
         console.log("Fetched sub-admins:", response.data.data);
@@ -71,7 +71,7 @@ export const SubAdminList = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `https://borgave-milkdairy.onrender.com/api/v1/subadmin/delete/${deleteId}`,
+        `https://milkdairybackendaws-production.up.railway.app/api/v1/subadmin/delete/${deleteId}`,
         { withCredentials: true }
       );
       setSubAdmins((prev) =>
@@ -115,7 +115,7 @@ export const SubAdminList = () => {
         dataUpdate.append("branchId", formData.branchId);
 
         const response = await axios.patch(
-          `https://borgave-milkdairy.onrender.com/api/v1/subadmin/update/${editId}`,
+          `https://milkdairybackendaws-production.up.railway.app/api/v1/subadmin/update/${editId}`,
           dataUpdate,
           {
             withCredentials: true,
@@ -143,7 +143,7 @@ export const SubAdminList = () => {
         dataCreate.append("branchId", formData.branchId);
 
         const response = await axios.post(
-          "https://borgave-milkdairy.onrender.com/api/v1/subadmin/addSubAdmin",
+          "https://milkdairybackendaws-production.up.railway.app/api/v1/subadmin/addSubAdmin",
           dataCreate,
           {
             withCredentials: true,

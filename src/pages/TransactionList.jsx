@@ -6,7 +6,7 @@ import axios from "axios";
 import { ErrorDialog } from "../components/ErrorDialog";
 
 // Adjust the base URL as needed for your backend API
-const API_BASE_URL = "https://borgave-milkdairy.onrender.com/api/v1";
+const API_BASE_URL = "https://milkdairybackendaws-production.up.railway.app/api/v1";
 
 const TransactionList = () => {
   const [transactions, setTransactions] = useState([]);
