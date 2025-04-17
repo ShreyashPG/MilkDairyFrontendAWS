@@ -175,7 +175,7 @@ export const SubAdminReport = () => {
           <button
             onClick={() =>
               downloadReport(
-                `/farmer/combined-report-for-all-farmers`,
+                `/transaction/download-all-farmers-pdf`,
                 `$all_Farmers_Combined_Report.pdf`
               )
             }
@@ -205,7 +205,7 @@ export const SubAdminReport = () => {
           <button
             onClick={() =>
               downloadReport(
-                `/farmer/combined-report-by-mobileNumber/${farmerID}`, // Updated variable name
+                `/transaction/ReportByFarmerId/${farmerID}/${startDate}/${endDate}`, // Updated variable name
                 `${farmerID}_Farmer_Combined_Report.pdf` // Updated variable name
               )
             }
