@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { io } from "socket.io-client";
 import { ErrorDialog } from "../components/ErrorDialog.jsx";
 
-const socket = io("http://localhost:8000");
+const socket = io("https://milkdairybackendaws.onrender.com");
 export const ProductList = () => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("all");
