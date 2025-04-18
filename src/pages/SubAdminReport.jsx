@@ -599,12 +599,8 @@ export const SubAdminReport = () => {
             onClick={() => {
               if (startDate && endDate) {
                 downloadReport(
-                  `/loan/subAdmin/loans/report?startDate=${
-                    startDate.toISOString().split("T")[0]
-                  }&endDate=${endDate.toISOString().split("T")[0]}`,
-                  `Farmers_Loan_Report_${
-                    startDate.toISOString().split("T")[0]
-                  }_to_${endDate.toISOString().split("T")[0]}.xlsx`
+                  `/loan/subAdmin/loans/report/${startDate}/${endDate}`,
+                  `Farmers_Loan_Report_${startDate}_to_${endDate}.pdf`
                 );
               } else {
                 alert("Please select a valid date range");
